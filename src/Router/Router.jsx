@@ -6,6 +6,7 @@ import Errorpage from "../Pages/Errorpage";
 
 
 
+
 const router = createBrowserRouter([
     {
         path : '/',
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
                 element : <Home></Home>,
                 loader : ()=> fetch('http://localhost:5000/brandcard')
             },
-            
+          
         ]
     }
 ])
