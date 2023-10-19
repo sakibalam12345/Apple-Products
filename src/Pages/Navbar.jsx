@@ -50,6 +50,17 @@ const Navbar = () => {
                    Support
                   </NavLink>
     </li>
+    <li>
+    <NavLink
+                    to='/login'
+                    className={({ isActive }) =>
+                      isActive && 'text-gray-600 underline'
+                       
+                    }
+                  >
+                   Login
+                  </NavLink>
+    </li>
    
       
     </>
@@ -75,7 +86,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link>
+    <Link to='/login'>
     <button className="btn">
     LogIn
     </button>

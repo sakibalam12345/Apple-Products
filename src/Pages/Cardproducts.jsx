@@ -9,8 +9,8 @@ const Cardproducts = () => {
     console.log(brand_name,allproducts)
     return (
         <div>
-            <h1>card products here{allproducts.length}</h1>
-            <div className="grid grid-cols-2">
+            
+            <div className="grid grid-rows-1 justify-center space-y-11">
                 {
                     allproducts.map(products=> <Cardview key={products._id} products={products}></Cardview>)
                 }
