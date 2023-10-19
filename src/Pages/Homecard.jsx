@@ -5,7 +5,7 @@ const Homecard = ({card}) => {
     const {brand_name,image,details} = card;
     return (
         <div >
-    <Link to={`http://localhost:5000/brandcard/${brand_name}`}>   
+    <Link to={`/cardproducts/${brand_name}`}>   
    <div className="card w-full bg-base-100 shadow-xl" >
   <figure >
   <img  src={image} alt="" className="rounded-xl h-[400px]" />
