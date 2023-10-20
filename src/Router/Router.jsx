@@ -5,6 +5,7 @@ import Errorpage from "../Pages/Errorpage";
 import Cardproducts from "../Pages/Cardproducts";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import Cardddetails from "../Pages/Cardddetails";
 
 
 
@@ -25,6 +26,12 @@ const router = createBrowserRouter([
             path : '/cardproducts/:brand_name',
             element : <Cardproducts></Cardproducts>,
             loader : ({params})=> fetch(`http://localhost:5000/products/${params.brand_name}`)
+           },
+           { 
+            path : '/carddetails/:id',
+            element : <Cardddetails></Cardddetails>,
+            loader : ({params})=>fetch(`http://localhost:5000/products/carddetails/${params.id}`)
+
            },
            {
             path : '/login',

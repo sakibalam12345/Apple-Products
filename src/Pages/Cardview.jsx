@@ -1,8 +1,9 @@
 import { FaApple } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Cardview = ({products}) => {
-    console.log(products);
-    const {name,brand_name,image,type,price} = products;
+    // console.log(products);
+    const {name,brand_name,image,type,price,_id} = products;
     return (
         <div> 
             <p className="text-center font-semibold text-2xl mb-2">{name}</p>
@@ -21,7 +22,10 @@ const Cardview = ({products}) => {
   <input type="radio" name="rating-1" className="mask mask-star" checked />
 </div>
     <div className="card-actions justify-end">
+      <Link to={`/carddetails/${_id}`}>
       <button className="btn ">DETAILS</button>
+      </Link>
+     
       <button className="btn ">UPDATE</button>
     </div>
   </div>
