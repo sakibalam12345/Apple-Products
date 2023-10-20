@@ -11,7 +11,7 @@ const Cardproducts = () => {
     return (
         <div>
             <div>
-                <h1 className="text-4xl font-bold text-center mt-16 underline mb-6">Explore Our New Models Here</h1>
+                <h1 className="text-4xl font-bold text-center mt-16 underline mb-6">Explore Our New Models With Slider</h1>
                 <div>
             <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
