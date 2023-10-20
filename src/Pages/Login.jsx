@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 
+
 const Login = () => {
 
     const handlelogin = e =>{
@@ -36,6 +37,9 @@ const Login = () => {
         </div>
         <div>
             <p className="font-medium text-base">Do Not Have An Accout? Please <Link to='/register'><button className="btn">Register</button></Link>  </p>
+        </div>
+        <div >
+            <p className="text-center ">Login With  <button className="btn">Google </button> </p>
         </div>
       </form>
     </div>

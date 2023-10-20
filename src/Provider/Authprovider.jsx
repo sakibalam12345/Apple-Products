@@ -22,12 +22,14 @@ const Authprovider = ({children}) => {
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
+  
     const signin = (email,password)=>{
         setloading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
 
-    const signout = ()=>{
+    const logout = ()=>{
+        setloading(true)
         return signOut(auth)
 
     }
@@ -39,7 +41,11 @@ const Authprovider = ({children}) => {
 
     const userinfo = {
         user,
-        loading
+        loading,
+        googlesignin,
+        createuser,
+        signin,
+        logout
 
     }
     return (
