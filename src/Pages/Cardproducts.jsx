@@ -1,6 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import Cardview from "./Cardview";
-import { FaApple } from "react-icons/fa";
+
 
 
 const Cardproducts = () => {
