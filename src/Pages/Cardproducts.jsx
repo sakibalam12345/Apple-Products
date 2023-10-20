@@ -1,13 +1,13 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Cardview from "./Cardview";
 
 
 
 const Cardproducts = () => {
 
-    const {brand_name} = useParams();
+    
     const allproducts = useLoaderData();
-    console.log(brand_name,allproducts)
+    // console.log(brand_name,allproducts)
     return (
         <div>
             <div>

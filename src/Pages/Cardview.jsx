@@ -25,8 +25,10 @@ const Cardview = ({products}) => {
       <Link to={`/carddetails/${_id}`}>
       <button className="btn ">DETAILS</button>
       </Link>
-     
-      <button className="btn ">UPDATE</button>
+     <Link to={`/updatecard/${_id}`}>
+     <button className="btn ">UPDATE</button>
+     </Link>
+      
     </div>
   </div>
 </div>

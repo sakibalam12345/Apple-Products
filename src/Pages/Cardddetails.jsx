@@ -7,7 +7,7 @@ const Cardddetails = () => {
 
   
     const singledata = useLoaderData();
-    console.log(singledata)
+    // console.log(singledata)
     
     return (
         <div className="bg-black text-gray-400">
