@@ -10,8 +10,6 @@ const Home = () => {
     return (
         <div>
             <Header></Header>
-        
-          
             <Brandcard></Brandcard>
             <Itvwatch></Itvwatch>
 

@@ -1,39 +1,80 @@
-import { FaApple } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
-const Cartview = ({item}) => {
+
+const Cartview = ({item,uploadeddata,setuploadeddata}) => {
 
     const {name,image,price,type,brand_name,_id} = item;
+
+    const handledelete = _id =>{
+      
+
+      fetch(`http://localhost:5000/data/${_id}`,{
+        method : 'DELETE',
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        if(data.deletedCount > 0){
+          Swal.fire({
+            title: 'success!',
+            text: 'Successfully Removed',
+            icon: 'Success',
+            confirmButtonText: 'Cool'
+          })
+          const remaining = uploadeddata.filter(item=> item._id !== _id);
+          setuploadeddata(remaining)
+
+        }
+       
+      })
+    }
     return (
         <div>
-              <div> 
-           
-            <div className="card w-full lg:card-side bg-base-100 shadow-xl">
-  <figure><img className="w-96 h-96"  src={image} alt="Album"/></figure>
-  <div className="card-body">
-    <h2 className="card-title pt-20 font-medium text-lg"><FaApple></FaApple> {brand_name}</h2>
-    <p className='font-medium text-lg'>{name}</p>
-    <p className='font-medium text-lg'>{type}</p>
-    <p className='font-medium text-lg'>$ {price}</p>
-    <div className="rating">
-  <input type="radio" name="rating-1" className="mask mask-star" checked />
-  <input type="radio" name="rating-1" className="mask mask-star" checked />
-  <input type="radio" name="rating-1" className="mask mask-star" checked />
-  <input type="radio" name="rating-1" className="mask mask-star"  checked/>
-  <input type="radio" name="rating-1" className="mask mask-star" checked />
-</div>
-    <div className="card-actions justify-end">
-     
-     
-     <button className="btn ">DELETE</button>
-    
+             <div className="overflow-x-auto text-black mt-10">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
       
-    </div>
-  </div>
+        <th>Photo</th>
+        <th>Brand Name</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {/* row 1 */}
+      <tr>
+       
+        <td>
+          <div className="flex items-center space-x-3">
+            <div className="avatar">
+              <div className="mask mask-squircle w-12 h-12">
+                <img src={image} alt="Avatar Tailwind CSS Component" />
+              </div>
+            </div>
+            <div>
+              <div className="font-bold">{type}</div>
+              <div className="text-sm opacity-50">{name}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          {brand_name}
+        
+          
+        </td>
+        <td>{price}</td>
+        <th>
+          <button onClick={()=>handledelete(_id)} className="btn btn-ghost btn-xs">REMOVE</button>
+        </th>
+      </tr>
+  
+    </tbody>
+  
+    
+  </table>
 </div>
-     
-        </div>
         </div>
     );
 };
