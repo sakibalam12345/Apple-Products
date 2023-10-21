@@ -10,6 +10,7 @@ import Updatecard from "../Pages/Updatecard";
 import Mycart from "../Pages/Mycart";
 
 import Addproduct from "../Pages/Addproduct";
+import Privateroute from "../Pages/Privateroute";
 
 
 
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path : '/addproduct',
-                element : <Addproduct></Addproduct>
+                element : <Privateroute><Addproduct></Addproduct></Privateroute>
             },
            {
             path : '/cardproducts/:brand_name',
@@ -37,19 +38,19 @@ const router = createBrowserRouter([
            },
            { 
             path : '/carddetails/:id',
-            element : <Cardddetails></Cardddetails>,
+            element : <Privateroute><Cardddetails></Cardddetails></Privateroute>,
             loader : ({params})=>fetch(`http://localhost:5000/products/carddetails/${params.id}`)
 
            },
            {
             path : '/updatecard/:id',
-            element : <Updatecard></Updatecard>,
+            element : <Privateroute><Updatecard></Updatecard></Privateroute>,
             loader : ({params})=> fetch(`http://localhost:5000/products/updatecard/${params.id}`)
 
            },
            {
             path : '/mycart',
-            element : <Mycart></Mycart>,
+            element : <Privateroute><Mycart></Mycart></Privateroute>,
             loader : ()=>fetch('http://localhost:5000/data')
            },
            {

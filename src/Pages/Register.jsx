@@ -1,9 +1,18 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/Authprovider";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 
 const Register = () => {
+
+  const [regisuccess,setregisuccess] = useState('');
+  const [regierror,setregierror] = useState('')
+
+  const navigate = useNavigate();
 
     const {createuser} = useContext(AuthContext)
 
@@ -15,12 +24,27 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name,photo,email,password)
+
+        if(password.length < 6){
+          return setregierror(toast('password should be more than 6 characters'))
+        }
+       else if(!/[A-Z]/.test(password)){
+          return setregierror(toast('password should have a capital letter'))
+        }
+        else if(!/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(password)){
+          return setregierror(toast('password should have a special charecter'))
+        }
+
         createuser(email,password)
         .then(result=>{
             console.log(result.user)
+         setregisuccess(toast('registration successfull'))
+            navigate('/')
+            
         })
         .catch(error=>{
             console.error(error)
+            setregierror(toast(error.message))
         })
     }
     return (

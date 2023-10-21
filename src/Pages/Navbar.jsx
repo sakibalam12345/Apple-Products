@@ -1,9 +1,28 @@
 import { Link, NavLink } from "react-router-dom";
 import { AiFillApple } from 'react-icons/ai';
+import { useContext, useState } from "react";
+import { AuthContext } from "../Provider/Authprovider";
+import { toast } from "react-toastify";
+
 
 
 
 const Navbar = () => {
+const [logoutsuccess,setlogoutsuccess] = useState('')
+  const {user,logout} = useContext(AuthContext);
+
+
+
+  const handlelogout = ()=>{
+
+    logout()
+   .then(result=>{
+    console.log(result)
+    setlogoutsuccess(toast('Successfully Logout'))
+   })
+   .catch()
+
+  }
 
     const navlinks = <>
     <li>
@@ -39,17 +58,7 @@ const Navbar = () => {
                    My Cart
                   </NavLink>
     </li>
-    <li>
-    <NavLink
-                    to='/support'
-                    className={({ isActive }) =>
-                      isActive && 'text-gray-600 underline'
-                       
-                    }
-                  >
-                   Support
-                  </NavLink>
-    </li>
+
     <li>
     <NavLink
                     to='/login'
@@ -85,7 +94,21 @@ const Navbar = () => {
      
     </ul>
   </div>
+  { user ?
+  
   <div className="navbar-end">
+    <p>{user.displayName}</p>
+     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+    <div className="w-10  rounded-full">
+          <img  src={user.photoURL} />
+        </div>
+        </label>
+    <button onClick={handlelogout} className="btn">Logout</button>
+  </div> 
+   :  
+   
+   <div className="navbar-end">
+
     <Link to='/login'>
     <button className="btn">
     LogIn
@@ -93,7 +116,8 @@ const Navbar = () => {
     
     </Link>
     
-  </div>
+  </div> }
+
 </div>
         </div>
     );

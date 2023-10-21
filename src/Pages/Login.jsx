@@ -1,8 +1,31 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/Authprovider";
+import { toast } from "react-toastify";
 
 
 
 const Login = () => {
+
+  const [loginsuccess,setloginsuccess] = useState('');
+  const [loginerror,setloginerror] = useState('');
+
+  const {signin,googlesignin} = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location)
+  const Navigate = useNavigate();
+
+  const handlegooglelogin =()=>{
+    googlesignin()
+    .then(result=>{
+      console.log(result.user)
+      setloginsuccess(toast('Login successfully'))
+    })
+    .catch(error=>{
+      console.error(error)
+      setloginerror(toast(error.message))
+    })
+  }
 
     const handlelogin = e =>{
         e.preventDefault();
@@ -10,6 +33,20 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email,password)
+
+        signin(email,password)
+        .then(result=>{
+          console.log(result.user)
+          setloginsuccess(toast('Login successfully'))
+
+          Navigate(location?.state  ?  location.state : '/')
+
+
+        })
+        .catch(error=>{
+          console.error(error)
+          setloginerror(toast(error.message))
+        })
     }
     return (
         <div >
@@ -39,7 +76,7 @@ const Login = () => {
             <p className="font-medium text-base">Do Not Have An Accout? Please <Link to='/register'><button className="btn">Register</button></Link>  </p>
         </div>
         <div >
-            <p className="text-center ">Login With  <button className="btn">Google </button> </p>
+            <p className="text-center ">Login With  <button onClick={handlegooglelogin} className="btn">Google </button> </p>
         </div>
       </form>
     </div>
