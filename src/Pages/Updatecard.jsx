@@ -50,32 +50,32 @@ const Updatecard = () => {
             
           
             <form onSubmit={handleupdate}>
-            <div className="flex justify-around items-center mt-10" >
+            <div className="lg:flex justify-around items-center mt-10" >
                 <div >
                     <p className="font-medium text-base">Brand Name</p>
-                <input className="border-2 w-[500px] py-1 rounded-md pl-2" name="brand" defaultValue={updatedata.brand_name} type="text" />
+                <input className="border-2 lg:w-[500px] py-1 rounded-md pl-2" name="brand" defaultValue={updatedata.brand_name} type="text" />
                 </div>
                 <div>
                     <p className="font-medium text-base">Model Name</p>
-                <input className="border-2 w-[500px] py-1 rounded-md pl-2" name="model" defaultValue={updatedata.name} type="text" />
+                <input className="border-2 lg:w-[500px] py-1 rounded-md pl-2" name="model" defaultValue={updatedata.name} type="text" />
                 </div>
              
             </div>
-            <div className="flex justify-around items-center mt-5" >
+            <div className="lg:flex justify-around items-center mt-5" >
                 <div >
                     <p className="font-medium text-base">Type</p>
-                <input className="border-2 w-[500px] py-1 rounded-md pl-2" name="type" defaultValue={updatedata.type} type="text" />
+                <input className="border-2 lg:w-[500px] py-1 rounded-md pl-2" name="type" defaultValue={updatedata.type} type="text" />
                 </div>
                 <div>
                     <p className="font-medium text-base">Price</p>
-                <input className="border-2 w-[500px] py-1 rounded-md pl-2" name="price" defaultValue={updatedata.price} type="text" />
+                <input className="border-2 lg:w-[500px] py-1 rounded-md pl-2" name="price" defaultValue={updatedata.price} type="text" />
                 </div>
                
               
             </div>
-            <div className="ml-32 mt-2">
+            <div className="lg:ml-32 mt-2">
             <p className="font-medium text-base">Photo</p>
-                <input className="border-2 w-[500px] py-1 rounded-md pl-2 "  placeholder="Photo Url" name="photo" defaultValue={updatedata.image} type="text" />
+                <input className="border-2 lg:w-[500px] py-1 rounded-md pl-2 "  placeholder="Photo Url" name="photo" defaultValue={updatedata.image} type="text" />
             </div>
           <div className="flex justify-center items-center mt-10">
             <button className="btn">Submit</button>

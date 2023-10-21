@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {
                 path : '/',
                 element : <Home></Home>,
-                loader : ()=> fetch('http://localhost:5000/brandcard')
+                loader : ()=> fetch('https://apple-server-kappa.vercel.app/brandcard')
             },
             {
                 path : '/addproduct',
@@ -34,24 +34,24 @@ const router = createBrowserRouter([
            {
             path : '/cardproducts/:brand_name',
             element : <Cardproducts></Cardproducts>,
-            loader : ({params})=> fetch(`http://localhost:5000/products/${params.brand_name}`)
+            loader : ({params})=> fetch(`https://apple-server-kappa.vercel.app/products/${params.brand_name}`)
            },
            { 
             path : '/carddetails/:id',
             element : <Privateroute><Cardddetails></Cardddetails></Privateroute>,
-            loader : ({params})=>fetch(`http://localhost:5000/products/carddetails/${params.id}`)
+            loader : ({params})=>fetch(`https://apple-server-kappa.vercel.app/products/carddetails/${params.id}`)
 
            },
            {
             path : '/updatecard/:id',
             element : <Privateroute><Updatecard></Updatecard></Privateroute>,
-            loader : ({params})=> fetch(`http://localhost:5000/products/updatecard/${params.id}`)
+            loader : ({params})=> fetch(`https://apple-server-kappa.vercel.app/products/updatecard/${params.id}`)
 
            },
            {
             path : '/mycart',
             element : <Privateroute><Mycart></Mycart></Privateroute>,
-            loader : ()=>fetch('http://localhost:5000/data')
+            loader : ()=>fetch('https://apple-server-kappa.vercel.app/data')
            },
            {
             path : '/login',

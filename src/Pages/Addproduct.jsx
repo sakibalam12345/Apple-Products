@@ -44,7 +44,7 @@ const Addproduct = () => {
            
                 <form onSubmit={handlesubmit}>
 
- <div className="flex justify-around items-center mt-10">
+ <div className=" lg:flex justify-around items-center mt-10">
             
   <div className="form-control w-full max-w-xs ">
   <span className="label-text">Brand Name</span>
@@ -73,7 +73,7 @@ const Addproduct = () => {
 
 </div>
 
- <div className="flex justify-around items-center mt-10">
+ <div className="lg:flex justify-around items-center mt-10">
             
   <div className="form-control w-full max-w-xs ">
   <span className="label-text">Name</span>
@@ -86,7 +86,7 @@ const Addproduct = () => {
 
 </div>
 
- <div className="flex justify-around items-center mt-10">
+ <div className="lg:flex justify-around items-center mt-10">
             
   <div className="form-control w-full max-w-xs ">
   <span className="label-text">Short Description</span>
