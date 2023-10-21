@@ -9,6 +9,8 @@ import Cardddetails from "../Pages/Cardddetails";
 import Updatecard from "../Pages/Updatecard";
 import Mycart from "../Pages/Mycart";
 
+import Addproduct from "../Pages/Addproduct";
+
 
 
 
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
                 path : '/',
                 element : <Home></Home>,
                 loader : ()=> fetch('http://localhost:5000/brandcard')
+            },
+            {
+                path : '/addproduct',
+                element : <Addproduct></Addproduct>
             },
            {
             path : '/cardproducts/:brand_name',
