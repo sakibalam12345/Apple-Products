@@ -1,7 +1,8 @@
 .bg{
     background-image: url('https://i.ibb.co/m6CQ03V/Apple-i-Phone-15-Pro-lineup-Action-button-230912-jpg-large-2x.jpg'); 
     height: 1000px;
+    
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size:cover;
     
 }

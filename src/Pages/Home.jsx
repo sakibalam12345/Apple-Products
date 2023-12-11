@@ -8,7 +8,7 @@ import Itvwatch from "./Itvwatch";
 
 const Home = () => {
     return (
-        <div>
+        <div className="">
             <Header></Header>
             <Brandcard></Brandcard>
             <Itvwatch></Itvwatch>
