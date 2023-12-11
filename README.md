@@ -9,4 +9,4 @@
 
 ## 🔗 Links
 
-*  live link : https://apple-website-auth.web.app
+*  live link : https://graceful-pasca-ed38ce.netlify.app
